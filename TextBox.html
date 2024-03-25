@@ -1,0 +1,67 @@
+j<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TEXT BOX</title>
+</head>
+<body>
+     <h1 align="center" class="heading" > Text Box </h1>
+     <div class="container" align="center">
+     	<form class="textboxform">
+        <label> Enter the tex below</label>
+        <br><br>
+        <textarea id="text" rows="10" cols="45" onkeyup="updateinfo()" autofocus ></textarea><br><br>
+        <button type="button" onclick="trasnformUpperCase()">UPPERCASE</button>
+        <button type="button" onclick="trasnformLowerCase()">LOWERCASE</button> 
+        <button type="button" onclick="Findtext()">FIND</button>
+        <button type="button" onclick="changecolor()" >CHANGE COLOR</button>
+        <button type="button" onclick="changecolor()">CHANGE COLOR</button>
+        <button type="button" onclick="textunderline()">UNDERINE</button>
+        <h2 id="textinfo"> This text contains 0 words and 0 characters</h2>
+        <br><br>
+
+     	</form>
+     </div>
+
+     <script type="text/javascript">
+
+        let text =document.getElementById("text");
+        let textinfo = document.getElementById("textinfo");
+        let clr ="red";
+
+        function trasnformUpperCase(){
+            text.value = text.value.toUpperCase();
+        }
+        function trasnformLowerCase(){
+            text.value = text.value.toLowerCase();
+        }
+
+        function Findtext(){
+            let searchText = prompt("enter the text :");
+            if(text.value.includes(searchText))
+            {
+                alert( `Search text "${searchText}" is present`);
+            }
+            else {
+                alert( `Search text "${searchText}" is not present`);
+            }
+        }
+
+        function changecolor(){
+            clr = prompt(("enter your fav color :").toLowerCase())
+            text.style.color=clr;
+        }
+
+        function textunderline(){
+            text.style.textDecoration="underline 2px solid ${clr}"
+        }
+
+        function updateinfo(){
+            let numerofWords = text.value.trim().split(" ").lenght
+
+            textInfo.innerHTML = "this text contains ${numberofWords} words and ${text.value.lenght} characters "
+        }
+     </script>
+</body>
+</html>
